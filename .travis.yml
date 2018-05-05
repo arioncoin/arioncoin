@@ -18,7 +18,7 @@ env:
     - WINEDEBUG=fixme-all
     - MAKEJOBS="-j2"
     - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
-    - BASE_PACKAGES="zip git build-essential libtool autotools-dev automake pkg-config bsdmainutils curl python-dev"
+    - BASE_PACKAGES="zip git build-essential libtool autotools-dev automake pkg-config bsdmainutils curl  libdb4.8-dev libdb4.8++-dev python-dev"
   matrix:
 # Win32
     - HOST=i686-w64-mingw32 PACKAGES="g++-mingw-w64-i686 mingw-w64-i686-dev python3 nsis wine1.7 bc"
