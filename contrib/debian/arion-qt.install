@@ -1,0 +1,6 @@
+usr/local/bin/arion-qt usr/bin
+share/pixmaps/arion32.xpm usr/share/pixmaps
+share/pixmaps/arion16.xpm usr/share/pixmaps
+share/pixmaps/arion128.png usr/share/pixmaps
+debian/arion-qt.desktop usr/share/applications
+debian/arion-qt.protocol usr/share/kde4/services/

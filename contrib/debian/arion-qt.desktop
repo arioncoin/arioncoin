@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Arion
+Comment=Arion P2P Cryptocurrency
+Comment[fr]=Arion, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Arion, eşten eşe kriptografik sanal para birimi
+Exec=arion-qt %u
+Terminal=false
+Type=Application
+Icon=arion128
+MimeType=x-scheme-handler/arion;
+Categories=Office;Finance;

@@ -1,0 +1,68 @@
+Source: arion
+Section: utils
+Priority: optional
+Maintainer: Holger Schinzel <holger@arion.org>
+Uploaders: Holger Schinzel <holger@arion.org>
+Build-Depends: debhelper,
+ devscripts,
+ automake,
+ libtool,
+ bash-completion,
+ libdb4.8++-dev,
+ libssl-dev,
+ pkg-config,
+ libevent-dev,
+ libboost-system1.48-dev | libboost-system-dev (>> 1.35),
+ libboost-filesystem1.48-dev | libboost-filesystem-dev (>> 1.35),
+ libboost-program-options1.48-dev | libboost-program-options-dev (>> 1.35),
+ libboost-thread1.48-dev | libboost-thread-dev (>> 1.35),
+ libboost-test1.48-dev | libboost-test-dev (>> 1.35),
+ libboost-chrono1.48-dev | libboost-chrono-dev (>> 1.35),
+ qt4-qmake,
+ libqt4-dev,
+ libqrencode-dev,
+ libprotobuf-dev, protobuf-compiler,
+ python
+Standards-Version: 3.9.2
+Homepage: https://www.arion.org/
+Vcs-Git: git://github.com/ArionCore/Arion.git
+Vcs-Browser: https://github.com/ArionCore/Arion
+
+Package: ariond
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer network based digital currency - daemon
+ Arion is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Arion uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. Arion Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides the daemon, ariond, and the CLI tool
+ arion-cli to interact with the daemon.
+
+Package: arion-qt
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer network based digital currency - Qt GUI
+ Arion is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Arion uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. Arion Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides Arion-Qt, a GUI for Arion based on Qt.
+
+Package: arion-tx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer digital currency - standalone transaction tool
+ Arion is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Arion uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. Arion Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides arion-tx, a command-line transaction creation
+ tool which can be used without a arion daemon.  Some means of
+ exchanging minimal transaction data with peers is still required.
