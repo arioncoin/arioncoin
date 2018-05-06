@@ -1233,33 +1233,9 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     double dDiff;
     CAmount nSubsidyBase = 30; //added =14
 
-    //3.5M premine to cover airdrop/swap and initial costs for new coin
+    //4M premine to cover airdrop/swap and initial costs for new coin
     //3.25M+ is just for airdrop/swap.
-    if(nPrevHeight == 0) {nSubsidyBase = 35000000;}
-    if(nPrevHeight < 50) {nSubsidyBase = 45000;}
-
-    if(nPrevHeight == 1999) {nSubsidyBase = 500;}
-    if(nPrevHeight == 2999) {nSubsidyBase = 500;}
-    if(nPrevHeight == 3999) {nSubsidyBase = 500;}
-    if(nPrevHeight == 4999) {nSubsidyBase = 500;}
-    if(nPrevHeight == 5999) {nSubsidyBase = 500;}
-    if(nPrevHeight == 9999) {nSubsidyBase = 1000;}
-    if(nPrevHeight == 14999) {nSubsidyBase = 1000;}
-    if(nPrevHeight == 19999) {nSubsidyBase = 1000;}
-    if(nPrevHeight == 39999) {nSubsidyBase = 1000;}
-    if(nPrevHeight == 74999) {nSubsidyBase = 1000;}
-    if(nPrevHeight == 99999) {nSubsidyBase = 1000;}
-    if(nPrevHeight == 119999) {nSubsidyBase = 2000;}
-    if(nPrevHeight == 139999) {nSubsidyBase = 2000;}
-    if(nPrevHeight == 159999) {nSubsidyBase = 2000;}
-    if(nPrevHeight == 179999) {nSubsidyBase = 2000;}
-    if(nPrevHeight == 199999) {nSubsidyBase = 2000;}
-    if(nPrevHeight == 219999) {nSubsidyBase = 2000;}
-    if(nPrevHeight == 239999) {nSubsidyBase = 2000;}
-    if(nPrevHeight == 449999) {nSubsidyBase = 5000;}
-    if(nPrevHeight == 719999) {nSubsidyBase = 5000;}
-    if(nPrevHeight == 949999) {nSubsidyBase = 5000;}
-    if(nPrevHeight == 1199999) {nSubsidyBase = 5000;}
+    if(nPrevHeight == 0) {nSubsidyBase = 4000000;}
 
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
     CAmount nSubsidy = nSubsidyBase * COIN;
@@ -1277,7 +1253,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
-    return blockValue * 0.75;
+    return blockValue * 0.70;
 }
 
 bool IsInitialBlockDownload()
