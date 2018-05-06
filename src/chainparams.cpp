@@ -73,12 +73,12 @@ public:
         consensus.nBudgetProposalEstablishingTime = 60*60*24;
         consensus.nSuperblockStartBlock = 21900; 
         consensus.nSuperblockCycle = 21900; // ~(60*24*30)/2
-        consensus.nGovernanceMinQuorum = 10;
+        consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 20000;
-        consensus.nMasternodeMinimumConfirmations = 15;
+        consensus.nMasternodeMinimumConfirmations = 1;
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
-        consensus.nMajorityWindow = 1000;
+        consensus.nMajorityWindow = 1;
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("0x00000a83082efe5da27d267a77b985dac3a04f9c3afd3d777d4c4275898be4c9");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
@@ -151,13 +151,13 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-        nPoolMaxTransactions = 3;
+        nPoolMaxTransactions = 1;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
         strSporkPubKey = "04ad7b1fda1d539f31925cdd00721b534cae64fd3f1c8ff90c844e09358e20cecf1b59f13cafec16dfce2e2048c534b9c79ff364157a69823f8fa80039b45f079f";
         
