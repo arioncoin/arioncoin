@@ -1253,7 +1253,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
-    return blockValue * 0.70;
+    return blockValue * 0.75;
 }
 
 bool IsInitialBlockDownload()
