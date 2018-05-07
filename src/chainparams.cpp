@@ -81,8 +81,7 @@ public:
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb");
-        consensus.powLimit = uint256S("0000000000000000000000000000000000000000000000000000000000ffffff");
-        //uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
+        consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 7 * 60; // Rapture: 7 minutes
         consensus.nPowTargetSpacing =  2 * 60; // Rapture: 120 seconds
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -108,7 +107,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226; // 80% of 4032
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000062eff2c53b129e"); // 0
+        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000000000defff"); // 0
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x000001cf85aa8902899d6c10147e653f3d1c7fefdb8923eae070ddbc27085fbe"); // 130
