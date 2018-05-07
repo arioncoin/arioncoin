@@ -80,7 +80,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("0x0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb");
+        consensus.BIP34Hash = uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 7 * 60; // Rapture: 7 minutes
         consensus.nPowTargetSpacing =  2 * 60; // Rapture: 120 seconds
@@ -110,7 +110,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000062eff2c53b129e"); // 0
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0x000001cf85aa8902899d6c10147e653f3d1c7fefdb8923eae070ddbc27085fbe"); // 130
+        consensus.defaultAssumeValid = uint256S("0x000001cf85aa8902899d6c10147e653f3d1c7fefdb8923eae070ddbc27085fbe"); // 130
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -163,10 +163,9 @@ public:
         
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  0, uint256S("0x0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb"))
-            (  130, uint256S("0x000001cf85aa8902899d6c10147e653f3d1c7fefdb8923eae070ddbc27085fbe")),
-            1525660407, // * UNIX timestamp of last known number of transactions
-            131,    // * total number of transactions between genesis and that timestamp
+            (  0, uint256S("0x0")),
+            0, // * UNIX timestamp of last known number of transactions
+            0,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0        // * estimated number of transactions per second after that timestamp
         };
@@ -281,11 +280,11 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (    0, uint256S("0x000001fed81d444a2fa766e7d66fbc99b868fee22aa5f8d8ed2c7aa68d853867")),
-            1522472609, // * UNIX timestamp of last known number of transactions
-            4897448,    // * total number of transactions between genesis and that timestamp
+            (    0, uint256S("0x0")),
+            0, // * UNIX timestamp of last known number of transactions
+            0,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            0.01        // * estimated number of transactions per second after that timestamp
+            0        // * estimated number of transactions per second after that timestamp
         };
     }
 };
@@ -376,7 +375,7 @@ public:
 
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of
-            ( 0, uint256S("0x")),
+            ( 0, uint256S("0x0")),
             0,
             0,
             0
