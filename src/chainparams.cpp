@@ -84,7 +84,7 @@ public:
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 7 * 60; // Rapture: 7 minutes
         consensus.nPowTargetSpacing =  2 * 60; // Rapture: 120 seconds
-        consensus.fPowAllowMinDifficultyBlocks = false;
+        consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 1;
         consensus.nPowDGWHeight = 1;
