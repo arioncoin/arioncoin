@@ -153,7 +153,7 @@ public:
 
         fMiningRequiresPeers = false;
         fDefaultConsistencyChecks = false;
-        fRequireStandard = true;
+        fRequireStandard = false;
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
         nMaxTipAge = 6 * 60 * 600; 
