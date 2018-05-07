@@ -62,30 +62,30 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 262800;  //Halve subsity approx every year
+        consensus.nSubsidyHalvingInterval = 262800;  
         consensus.nMasternodePaymentsStartBlock = 300;
         consensus.nMasternodePaymentsIncreaseBlock = -1; //
         consensus.nMasternodePaymentsIncreasePeriod = -1; //
         consensus.nInstantSendKeepLock = 24;
-        consensus.nBudgetPaymentsStartBlock = 10950; // Approx 1
-        consensus.nBudgetPaymentsCycleBlocks = 10950; // ~(60*24*30)/2
-        consensus.nBudgetPaymentsWindowBlocks = 100;
+        consensus.nBudgetPaymentsStartBlock = 300; // Approx 1 year
+        consensus.nBudgetPaymentsCycleBlocks = 30; // ~(60*24*30)/2
+        consensus.nBudgetPaymentsWindowBlocks = 10;
         consensus.nBudgetProposalEstablishingTime = 60*60*24;
-        consensus.nSuperblockStartBlock = 21900; 
-        consensus.nSuperblockCycle = 21900; // ~(60*24*30)/2
-        consensus.nGovernanceMinQuorum = 1;
+        consensus.nSuperblockStartBlock = 270000; // Approx 1 year
+        consensus.nSuperblockCycle = 10950; // ~(60*24*30)/2
+        consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;
-        consensus.nMasternodeMinimumConfirmations = 1;
+        consensus.nMasternodeMinimumConfirmations = 15;
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
-        consensus.nMajorityWindow = 1;
+        consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb");
+        consensus.BIP34Hash = uint256S("0x0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 7 * 60; // Arion: 7 minutes
-        consensus.nPowTargetSpacing =  2 * 60; // Arion: 120 seconds
-        consensus.fPowAllowMinDifficultyBlocks = true;
-        consensus.fPowNoRetargeting = true;
+        consensus.nPowTargetTimespan = 7 * 60; // Rapture: 7 minutes
+        consensus.nPowTargetSpacing =  2 * 60; // Rapture: 120 seconds
+        consensus.fPowAllowMinDifficultyBlocks = false;
+        consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 1;
         consensus.nPowDGWHeight = 1;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
@@ -110,7 +110,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000062eff2c53b129e"); // 0
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb"); // 0
+        consensus.defaultAssumeValid = uint256S("0x0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb"); // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -157,15 +157,15 @@ public:
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-        nPoolMaxTransactions = 1;
+        nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
         strSporkPubKey = "04ad7b1fda1d539f31925cdd00721b534cae64fd3f1c8ff90c844e09358e20cecf1b59f13cafec16dfce2e2048c534b9c79ff364157a69823f8fa80039b45f079f";
         
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  0, uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb")),
-            1507424630, // * UNIX timestamp of last known number of transactions
-            3701128,    // * total number of transactions between genesis and that timestamp
+            (  0, uint256S("0x0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb")),
+            1525660407, // * UNIX timestamp of last known number of transactions
+            0,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.1         // * estimated number of transactions per second after that timestamp
         };
@@ -303,10 +303,10 @@ public:
         consensus.nMasternodePaymentsIncreasePeriod = 10;
         consensus.nInstantSendKeepLock = 6;
         consensus.nBudgetPaymentsStartBlock = 1000;
-        consensus.nBudgetPaymentsCycleBlocks = 21900;
+        consensus.nBudgetPaymentsCycleBlocks = 30;
         consensus.nBudgetPaymentsWindowBlocks = 10;
         consensus.nBudgetProposalEstablishingTime = 60*20;
-        consensus.nSuperblockStartBlock = 1500;
+        consensus.nSuperblockStartBlock = 1;
         consensus.nSuperblockCycle = 10;
         consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 100;
