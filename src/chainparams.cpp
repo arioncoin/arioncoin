@@ -81,7 +81,8 @@ public:
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb");
-        consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
+        consensus.powLimit = uint256S("0000000000000000000000000000000000000000000000000000000000ffffff");
+        //uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 7 * 60; // Rapture: 7 minutes
         consensus.nPowTargetSpacing =  2 * 60; // Rapture: 120 seconds
         consensus.fPowAllowMinDifficultyBlocks = true;
