@@ -41,7 +41,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "May 02, 2018 - The rebirth of Arion coin.";
+    const char* pszTimestamp = "May-06-2018 Arion relaunch";
     const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -80,7 +80,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("0x00000a83082efe5da27d267a77b985dac3a04f9c3afd3d777d4c4275898be4c9");
+        consensus.BIP34Hash = uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 7 * 60; // Arion: 7 minutes
         consensus.nPowTargetSpacing =  2 * 60; // Arion: 120 seconds
@@ -110,7 +110,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000062eff2c53b129e"); // 0
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000a83082efe5da27d267a77b985dac3a04f9c3afd3d777d4c4275898be4c9"); // 0
+        consensus.defaultAssumeValid = uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb"); // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -125,10 +125,10 @@ public:
         nDefaultPort = 44144;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1525276918, 263692, 504365040, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1525660407, 3797904, 504365040, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x00000a83082efe5da27d267a77b985dac3a04f9c3afd3d777d4c4275898be4c9"));
-        assert(genesis.hashMerkleRoot == uint256S("0xb9ef66655d937d025225f0a4597bfa6422ba517023ebb101486208d279e4bdf9"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb"));
+        assert(genesis.hashMerkleRoot == uint256S("0xfcd8ccb94e15c0f72353f02d434fa6cab59fc3b3bb457a6b87d6c5453594cb07"));
 
 
         vSeeds.push_back(CDNSSeedData("arion-dns1.nethash.io", "arion-dns1.nethash.io"));
@@ -152,9 +152,9 @@ public:
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
         fMiningRequiresPeers = false;
-        fDefaultConsistencyChecks = false;
-        fRequireStandard = false;
-        fMineBlocksOnDemand = true;
+        fDefaultConsistencyChecks = true;
+        fRequireStandard = true;
+        fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
 
         nPoolMaxTransactions = 1;
@@ -163,7 +163,7 @@ public:
         
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  0, uint256S("0x00000a83082efe5da27d267a77b985dac3a04f9c3afd3d777d4c4275898be4c9")),
+            (  0, uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb")),
             1507424630, // * UNIX timestamp of last known number of transactions
             3701128,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
@@ -238,10 +238,10 @@ public:
         nDefaultPort = 54144;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1525277294, 307726, 504365040, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1525660563, 1765315, 504365040, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000001fed81d444a2fa766e7d66fbc99b868fee22aa5f8d8ed2c7aa68d853867"));
-        assert(genesis.hashMerkleRoot == uint256S("0xb9ef66655d937d025225f0a4597bfa6422ba517023ebb101486208d279e4bdf9"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000051fc4aa135017e08c9a89c60653e784684a5b6b1924193fd81eac26634b"));
+        assert(genesis.hashMerkleRoot == uint256S("0xfcd8ccb94e15c0f72353f02d434fa6cab59fc3b3bb457a6b87d6c5453594cb07"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -357,10 +357,10 @@ public:
         nDefaultPort = 19994;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1525277439, 1712982, 504365040, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1525660659, 621022, 504365040, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x0000015e17e8470f70104e0e7e534623bbea6ad30b221dd1be9acaa6361affaa"));
-        assert(genesis.hashMerkleRoot == uint256S("0xb9ef66655d937d025225f0a4597bfa6422ba517023ebb101486208d279e4bdf9"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000006cc75836e3f7876edf5d0f59e0896c8cb019a937a23efe4941f8c399854"));
+        assert(genesis.hashMerkleRoot == uint256S("0xfcd8ccb94e15c0f72353f02d434fa6cab59fc3b3bb457a6b87d6c5453594cb07"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
