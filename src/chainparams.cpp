@@ -151,12 +151,12 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = false;
+        fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
-
+        nMaxTipAge = 6 * 60 * 600; 
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
         strSporkPubKey = "04ad7b1fda1d539f31925cdd00721b534cae64fd3f1c8ff90c844e09358e20cecf1b59f13cafec16dfce2e2048c534b9c79ff364157a69823f8fa80039b45f079f";
@@ -164,8 +164,9 @@ public:
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
             (  0, uint256S("0x0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb")),
+            (  130, uint256S("0x000001cf85aa8902899d6c10147e653f3d1c7fefdb8923eae070ddbc27085fbe")),
             1525660407, // * UNIX timestamp of last known number of transactions
-            0,    // * total number of transactions between genesis and that timestamp
+            131,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0        // * estimated number of transactions per second after that timestamp
         };
