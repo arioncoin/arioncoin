@@ -121,7 +121,7 @@ public:
         pchMessageStart[1] = 0xbf;
         pchMessageStart[2] = 0xbd;
         pchMessageStart[3] = 0x6b;
-        vAlertPubKey = ParseHex("048240a8748a80a286b270ba126705ced4f2ce5a7847b3610ea3c06513150dade2a8512ed5ea86320824683fc0818f0ac019214973e677acd1244f6d0571fc5103");
+        vAlertPubKey = ParseHex("04efdbb4309943b3949ec919ac589cbee85d45edf590c115972b783bdc6b34f20e6e8ef644f75aa5bbac20a20584f4d1ceef1c4d5120b1f638a11a07abb0e696e5");
         nDefaultPort = 44144;
         nPruneAfterHeight = 100000;
 
@@ -151,7 +151,7 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = true;
@@ -159,7 +159,7 @@ public:
         nMaxTipAge = 6 * 60 * 600; 
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
-        strSporkPubKey = "04ad7b1fda1d539f31925cdd00721b534cae64fd3f1c8ff90c844e09358e20cecf1b59f13cafec16dfce2e2048c534b9c79ff364157a69823f8fa80039b45f079f";
+        strSporkPubKey = "04cd50b6f83c915bc1c172b4de59bac0df0a891dde3506cfb26418bd5a66223fae688489bb5ab6ab0a36fa586629b6cb0813ed854e3121e9c1b6ef8ec2c36db3f1";
         
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
