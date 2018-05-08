@@ -454,7 +454,7 @@ bool CGovernanceObject::IsValidLocally(std::string& strError, bool& fMissingMast
                 } else if (err == CMasternode::COLLATERAL_UTXO_NOT_FOUND) {
                     strError = "Failed to find Masternode UTXO, missing masternode=" + strOutpoint + "\n";
                 } else if (err == CMasternode::COLLATERAL_INVALID_AMOUNT) {
-                    strError = "Masternode UTXO should have 1000 ARION, missing masternode=" + strOutpoint + "\n";
+                    strError = "Masternode UTXO should have 5000 ARION, missing masternode=" + strOutpoint + "\n";
                 }
 
                 return false;
