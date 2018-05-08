@@ -156,18 +156,18 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
-        nMaxTipAge = 6 * 60 * 600; 
+        nMaxTipAge = 6 * 60 * 60; 
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
         strSporkPubKey = "04cd50b6f83c915bc1c172b4de59bac0df0a891dde3506cfb26418bd5a66223fae688489bb5ab6ab0a36fa586629b6cb0813ed854e3121e9c1b6ef8ec2c36db3f1";
         
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  0, uint256S("0x0")),
-            0, // * UNIX timestamp of last known number of transactions
-            0,    // * total number of transactions between genesis and that timestamp
+            (    51, uint256S("0x00000211e7e41bf76ca10fc62a188ec7c5f83ca123a62ed3e82381357b1c525a")),
+            1525735943, // * UNIX timestamp of last known number of transactions
+            63,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            0        // * estimated number of transactions per second after that timestamp
+            0.1        // * estimated number of transactions per second after that timestamp
         };
     }
 };
@@ -198,7 +198,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
         consensus.BIP34Height = 1;
-        consensus.BIP34Hash = uint256S("0x000001fed81d444a2fa766e7d66fbc99b868fee22aa5f8d8ed2c7aa68d853867");
+        consensus.BIP34Hash = uint256S("0x00000211e7e41bf76ca10fc62a188ec7c5f83ca123a62ed3e82381357b1c525a");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 10* 24 * 60 * 60; // Arion: 10 days
         consensus.nPowTargetSpacing = 2 * 60; // Arion: 2 minutes
@@ -228,7 +228,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00"); // 0
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00"); // 0
+        consensus.defaultAssumeValid = uint256S("0x00000211e7e41bf76ca10fc62a188ec7c5f83ca123a62ed3e82381357b1c525a"); // 0
 
         pchMessageStart[0] = 0xce;
         pchMessageStart[1] = 0xe2;
