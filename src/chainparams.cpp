@@ -63,11 +63,11 @@ public:
     CMainParams() {
         strNetworkID = "main";
         consensus.nSubsidyHalvingInterval = 262800;  
-        consensus.nMasternodePaymentsStartBlock = 300;
+        consensus.nMasternodePaymentsStartBlock = 50;
         consensus.nMasternodePaymentsIncreaseBlock = -1; //
         consensus.nMasternodePaymentsIncreasePeriod = -1; //
         consensus.nInstantSendKeepLock = 24;
-        consensus.nBudgetPaymentsStartBlock = 300; // Approx 1 year
+        consensus.nBudgetPaymentsStartBlock = 50; // Approx 1 year
         consensus.nBudgetPaymentsCycleBlocks = 30; // ~(60*24*30)/2
         consensus.nBudgetPaymentsWindowBlocks = 10;
         consensus.nBudgetProposalEstablishingTime = 60*60*24;
@@ -82,9 +82,9 @@ public:
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("0x00000de02cd1bf265d0969ca11f60b4ab891f5b8203ce45b14cd7d51a1e872fb");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 7 * 60; // Rapture: 7 minutes
-        consensus.nPowTargetSpacing =  2 * 60; // Rapture: 120 seconds
-        consensus.fPowAllowMinDifficultyBlocks = true;
+        consensus.nPowTargetTimespan = 7 * 60; // Arion: 7 minutes
+        consensus.nPowTargetSpacing =  2 * 60; // Arion: 120 seconds
+        consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 1;
         consensus.nPowDGWHeight = 1;
@@ -151,10 +151,10 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = false;
+        fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
-        fMineBlocksOnDemand = true;
+        fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
         nMaxTipAge = 6 * 60 * 600; 
         nPoolMaxTransactions = 3;
