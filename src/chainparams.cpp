@@ -107,7 +107,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226; // 80% of 4032
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000000000defff"); // 0
+        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000000000fffff"); // 0
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x0000018e62a5028ff67615758576c9f2878289b1bcfb6c757c0ba171bd4341e0"); // 903
@@ -156,7 +156,7 @@ public:
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
-        nMaxTipAge = 6 * 60 * 60; 
+        nMaxTipAge = 6 * 60 * 6000000; 
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
         strSporkPubKey = "04cd50b6f83c915bc1c172b4de59bac0df0a891dde3506cfb26418bd5a66223fae688489bb5ab6ab0a36fa586629b6cb0813ed854e3121e9c1b6ef8ec2c36db3f1";
