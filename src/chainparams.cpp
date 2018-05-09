@@ -84,7 +84,7 @@ public:
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 7 * 60; // Arion: 7 minutes
         consensus.nPowTargetSpacing =  2 * 60; // Arion: 120 seconds
-        consensus.fPowAllowMinDifficultyBlocks = true;
+        consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 1;
         consensus.nPowDGWHeight = 1;
@@ -110,7 +110,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000000000defff"); // 0
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x000001cf85aa8902899d6c10147e653f3d1c7fefdb8923eae070ddbc27085fbe"); // 130
+        consensus.defaultAssumeValid = uint256S("0x0000018e62a5028ff67615758576c9f2878289b1bcfb6c757c0ba171bd4341e0"); // 903
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -151,10 +151,10 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = false;
+        fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
-        fRequireStandard = false;
-        fMineBlocksOnDemand = true;
+        fRequireStandard = true;
+        fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
         nMaxTipAge = 6 * 60 * 60; 
         nPoolMaxTransactions = 3;
@@ -163,11 +163,12 @@ public:
         
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (    51, uint256S("0x00000211e7e41bf76ca10fc62a188ec7c5f83ca123a62ed3e82381357b1c525a")),
-            1525735943, // * UNIX timestamp of last known number of transactions
-            63,    // * total number of transactions between genesis and that timestamp
+            (    51, uint256S("0x00000211e7e41bf76ca10fc62a188ec7c5f83ca123a62ed3e82381357b1c525a"))
+            (    903, uint256S("0x0000018e62a5028ff67615758576c9f2878289b1bcfb6c757c0ba171bd4341e0")),
+            1525883766, // * UNIX timestamp of last known number of transactions
+            921,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            0.1        // * estimated number of transactions per second after that timestamp
+            0.2        // * estimated number of transactions per second after that timestamp
         };
     }
 };
