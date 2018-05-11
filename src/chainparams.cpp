@@ -357,7 +357,7 @@ public:
         nDefaultPort = 19994;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1526056737, 514625, 504365040, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1526056737, 1467027, 504365040, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x000009bd24e8d5421d1ca07f6927ac5536744071914cdde5393b78c587e00d20"));
         assert(genesis.hashMerkleRoot == uint256S("0xe3059309c6d60e292733c75a3bfc48ced64a553611b5a578497ed5f43e77038b"));
@@ -380,7 +380,7 @@ public:
             0,
             0
         };
-        
+
         // Regtest Arion addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
         // Regtest Arion script addresses start with '8' or '9'
