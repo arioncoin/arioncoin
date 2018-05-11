@@ -380,6 +380,7 @@ public:
             0,
             0
         };
+        
         // Regtest Arion addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
         // Regtest Arion script addresses start with '8' or '9'
