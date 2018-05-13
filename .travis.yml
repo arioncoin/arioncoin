@@ -7,59 +7,63 @@ cache:
   - depends/built
   - depends/work
   - depends/sdk-sources
-  - $HOME/.ccache
+  - "$HOME/.ccache"
 env:
   global:
-    - SDK_URL=https://bitcoincore.org/depends-sources/sdks
-    - CCACHE_SIZE=1G
-    - CCACHE_TEMPDIR=/tmp/.ccache-temp
-    - CCACHE_COMPRESS=1
-    - PYTHON_DEBUG=1
-    - WINEDEBUG=fixme-all
-    - MAKEJOBS="-j2"
-    - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
-    - BASE_PACKAGES="zip git build-essential libtool autotools-dev automake pkg-config bsdmainutils curl libevent-dev libssl-dev libdb4.8-dev libdb4.8++-dev libboost-all-dev python-dev"
+  - SDK_URL=https://bitcoincore.org/depends-sources/sdks
+  - CCACHE_SIZE=1G
+  - CCACHE_TEMPDIR=/tmp/.ccache-temp
+  - CCACHE_COMPRESS=1
+  - PYTHON_DEBUG=1
+  - WINEDEBUG=fixme-all
+  - MAKEJOBS="-j2"
+  - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
+  - BASE_PACKAGES="zip git build-essential libtool autotools-dev automake pkg-config
+    bsdmainutils curl libevent-dev libssl-dev libdb4.8-dev libdb4.8++-dev libboost-all-dev
+    python-dev"
   matrix:
-# Win32
-    - HOST=i686-w64-mingw32 PACKAGES="g++-mingw-w64-i686 mingw-w64-i686-dev python3 nsis wine1.7 bc"
-# Win64
-    - HOST=x86_64-w64-mingw32 PACKAGES="g++-mingw-w64-x86-64 mingw-w64-x86-64-dev python3 nsis wine1.7 bc"
-# x86_64 Linux
-    - HOST=x86_64-unknown-linux-gnu PACKAGES=""
-# Cross-Mac
-    - HOST=x86_64-apple-darwin11 PACKAGES="cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev" OSX_SDK=10.11
-
+  - HOST=i686-w64-mingw32 PACKAGES="g++-mingw-w64-i686 mingw-w64-i686-dev python3
+    nsis wine1.7 bc"
+  - HOST=x86_64-w64-mingw32 PACKAGES="g++-mingw-w64-x86-64 mingw-w64-x86-64-dev python3
+    nsis wine1.7 bc"
+  - HOST=x86_64-unknown-linux-gnu PACKAGES=""
+  - HOST=x86_64-apple-darwin11 PACKAGES="cmake imagemagick libcap-dev librsvg2-bin
+    libz-dev libbz2-dev libtiff-tools python-dev" OSX_SDK=10.11
 before_install:
-    - git clone https://github.com/dashpay/dash_hash
-    - travis_retry sudo add-apt-repository ppa:ubuntu-wine/ppa -y
-    - sudo add-apt-repository -y ppa:bitcoin/bitcoin
-    - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
+- git clone https://github.com/dashpay/dash_hash
+- travis_retry sudo add-apt-repository ppa:ubuntu-wine/ppa -y
+- sudo add-apt-repository -y ppa:bitcoin/bitcoin
+- export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" |
+  sed "s|::|:|g")
 install:
-    - if [ "$PYZMQ" = "true" ]; then pip install pyzmq --user ; fi
-    - sudo apt-get update
-    - travis_retry sudo apt-get install --no-install-recommends --no-upgrade -qq $BASE_PACKAGES
-    - if [ -n "$PACKAGES" ]; then travis_retry sudo apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES; fi
-    - cd dash_hash && python setup.py install --user && cd ..
+- if [ "$PYZMQ" = "true" ]; then pip install pyzmq --user ; fi
+- sudo apt-get update
+- travis_retry sudo apt-get install --no-install-recommends --no-upgrade -qq $BASE_PACKAGES
+- if [ -n "$PACKAGES" ]; then travis_retry sudo apt-get install --no-install-recommends
+  --no-upgrade -qq $PACKAGES; fi
+- cd dash_hash && python setup.py install --user && cd ..
 before_script:
-    - unset CC; unset CXX
-    - cd $TRAVIS_BUILD_DIR
-    - mkdir -p depends/SDKs depends/sdk-sources
-    - if [ -n "$OSX_SDK" -a ! -f depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz ]; then curl --location --fail $SDK_URL/MacOSX${OSX_SDK}.sdk.tar.gz -o depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz; fi
-    - if [ -n "$OSX_SDK" -a -f depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz ]; then tar -C depends/SDKs -xf depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz; fi
+- unset CC; unset CXX
+- cd $TRAVIS_BUILD_DIR
+- mkdir -p depends/SDKs depends/sdk-sources
+- if [ -n "$OSX_SDK" -a ! -f depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz ]; then
+  curl --location --fail $SDK_URL/MacOSX${OSX_SDK}.sdk.tar.gz -o depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz;
+  fi
+- if [ -n "$OSX_SDK" -a -f depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz ]; then
+  tar -C depends/SDKs -xf depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz; fi
 script:
-    - OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
-    - ./autogen.sh
-    - cd depends && make $MAKEJOBS $OPT
-    - cd $TRAVIS_BUILD_DIR && ./configure --prefix=$TRAVIS_BUILD_DIR/depends/$HOST $CONF
-    - make $MAKEJOBS
+- OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
+- "./autogen.sh"
+- cd depends && make $MAKEJOBS $OPT
+- cd $TRAVIS_BUILD_DIR && ./configure --prefix=$TRAVIS_BUILD_DIR/depends/$HOST $CONF
+- make $MAKEJOBS
 before_deploy:
-    - ./pre-deploy.sh
+- "./pre-deploy.sh"
 deploy:
   provider: releases
   api_key:
-    secure: lLumAMSXlBUqalmiqfMxkhYsKZss8fJHeDE0sl6G1750zLr8nD3+wO6we+caOhyV8L3aGayfCLoVbKioNpZB0XZeztx70bn3DsqNo8qeMpwaeR5k3GwxXhNtCK8jgHO/gLSw6um6VowW6rmJB2pJmrmvR6kuG/nJfs6d3YRUDltK4SDhIyJD6t5TOP8AOE7DAwkV7DlmRo2Cp0vL/0K6VHfUc3ef1EHztnQ/zggje3cTunvw3iF5mQORtw21HB+OF0FhbpDhk8LOg6kQaUQCuJdZJuLoWo+BN8ENs0ZOC8rodaz8/q/O8Trry55N9+qE/GQEMhO5kxHLAlv+QWARR+y8xdkbF+SSKUSghaANKAriqZ3cGStsF9yMEIgzBaLC87mvX+3Oh2xuG2MSv3bSlC0eFg6W9D15t74nYomyymEiyuC6qaYN97emXcJlOfVqZFGvRA9LwKuJJDt1xXZbJAazceHKIVoK2YvQza1JpgrNvkQ3/NarqraH9s+8i7mJRH/gjbm8d8zWZAqEUGrkub1+Ized/Q0tn5fQ81DtFONWsqkwL6PYQz+mOcg/RuaQ6ahdWfKLK0KriVEMaG/VTsIiRx9rkVzF/YUrj8vXNKAoiXbb+u9X5q5Z0arLRefB+oQQ+OVuEHllf+0szYzJ8exBKjpHy/W/XtoIUdCKpH8=
-  file_glob: true
+    secure: o9M/orE4lepzFAnRF/SHz05clwwvjW/fv8ydZDEG0BKhOMtTtiJlIh97s3Z3zENkVvf07tTiRf010uo4aQr9Mf7Ih6Ewi98/2mLLHYIBsVnzZ7xLsB+iotwxHcS+rYj9OQzh3iSKGNoacBd9DuGWEJA7upbVF/nvRIRoDNf60zcCPXStBPSRC5k3oILZ+e3kfScocbs/QvbgD797kJUAOpRmbjV6yNuJaLSyCNN4fUBsvzcwtolZgeIhR1Ergp9jXeiinjJQPBBVaBU9T0r3Iaw8QVwagWS1vdZbCVVZVt2nwxXHjs2wMqV4vTEPRH0IBdY1amQZQnE2MlXtHhPZi7VIRtnsQg0LN9vdvWioBpAMpgQgg3iCxQxA7gG/LdaYXoX3lRQXPV1RYIL/SQFXZDlEGxaLZTCP6FFP9KCfRJiKVzRQEe20REnHRwyOWF2tEF+gGdKtZiA7feBkCp2dkEG1E/BLCDKRdpSch5Hfq38DCE+M42z5IUvcuFGPH4bMfgk500JlL0VcYRsditOxDyFBRP7V9BgH9I4a0ZsOof6J938rVKFBI25xCXaJ1UrBKxS8McAKY3SKRlpIE/l5myf0GAS3567ncQfxzbJWBfXxTOveL321lZjlF+AzH8hsjjcIkwukFJ+zU+/1/VOzI2R/TTXcNP/S3eH0YQIlQ0g=
   file: out/**/zip/*
-  skip_cleanup: true
   on:
+    repo: binarysculptor/arioncoin
     tags: true
