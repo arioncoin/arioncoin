@@ -22,9 +22,9 @@ elif [[ $HOST = "x86_64-apple-darwin11" ]]; then
     ARCHIVE_NAME="osx-x64.zip"
 fi
 
-cp $TRAVIS_BUILD_DIR/src/qt/arioncoin-qt $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/qt/arioncoin-qt.exe $OUTDIR/bin/ || echo "no QT Wallet"
-cp $TRAVIS_BUILD_DIR/src/arioncoind $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/arioncoind.exe $OUTDIR/bin/
-cp $TRAVIS_BUILD_DIR/src/arioncoin-cli $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/arioncoin-cli.exe $OUTDIR/bin/
+cp $TRAVIS_BUILD_DIR/src/qt/arion-qt $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/qt/arion-qt.exe $OUTDIR/bin/ || echo "no QT Wallet"
+cp $TRAVIS_BUILD_DIR/src/ariond $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/ariond.exe $OUTDIR/bin/
+cp $TRAVIS_BUILD_DIR/src/arion-cli $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/arion-cli.exe $OUTDIR/bin/
 strip "$OUTDIR/bin"/* || echo "nothing to strip"
 ls -lah $OUTDIR/bin
 
