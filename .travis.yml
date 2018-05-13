@@ -58,7 +58,7 @@ script:
 - cd $TRAVIS_BUILD_DIR && ./configure --prefix=$TRAVIS_BUILD_DIR/depends/$HOST $CONF
 - make $MAKEJOBS
 before_deploy:
-- chmod +x pre-deploy.sh    
+- "chmod +x pre-deploy.sh"    
 - "./pre-deploy.sh"
 deploy:
 # - provider: releases
@@ -68,7 +68,7 @@ deploy:
 #   on:
 #     repo: binarysculptor/arioncoin
 #     all_branches: true
--   provider: s3
+  provider: s3
   access_key_id: $S3_ACCESS_KEY
   secret_access_key: $S3_SECRET
   bucket: $S3_BUCKET
