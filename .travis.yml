@@ -72,5 +72,6 @@ deploy:
   access_key_id: $S3_ACCESS_KEY
   secret_access_key: $S3_SECRET
   bucket: $S3_BUCKET
+  local_dir: $OUTDIR
   skip_cleanup: true
 
