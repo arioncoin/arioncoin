@@ -62,7 +62,6 @@ libconftest.dylib*
 *.pyc
 *.o
 *.o-*
-*.patch
 .arion
 *.a
 *.pb.cc
@@ -81,12 +80,12 @@ libconftest.dylib*
 
 # Compilation and Qt preprocessor part
 *.qm
-Makefile
+#Makefile
 arion-qt
 Arion-Qt.app
 
 # Unit-tests
-Makefile.test
+#Makefile.test
 arion-qt_test
 src/test/buildenv.py
 
@@ -133,3 +132,5 @@ arion-cli
 ariond
 arion-qt
 make
+Makefile
+src/Makefile
