@@ -61,13 +61,13 @@ before_deploy:
 - chmod +x pre-deploy.sh    
 - "./pre-deploy.sh"
 deploy:
-- provider: releases
-  api_key:
-    secure: o9M/orE4lepzFAnRF/SHz05clwwvjW/fv8ydZDEG0BKhOMtTtiJlIh97s3Z3zENkVvf07tTiRf010uo4aQr9Mf7Ih6Ewi98/2mLLHYIBsVnzZ7xLsB+iotwxHcS+rYj9OQzh3iSKGNoacBd9DuGWEJA7upbVF/nvRIRoDNf60zcCPXStBPSRC5k3oILZ+e3kfScocbs/QvbgD797kJUAOpRmbjV6yNuJaLSyCNN4fUBsvzcwtolZgeIhR1Ergp9jXeiinjJQPBBVaBU9T0r3Iaw8QVwagWS1vdZbCVVZVt2nwxXHjs2wMqV4vTEPRH0IBdY1amQZQnE2MlXtHhPZi7VIRtnsQg0LN9vdvWioBpAMpgQgg3iCxQxA7gG/LdaYXoX3lRQXPV1RYIL/SQFXZDlEGxaLZTCP6FFP9KCfRJiKVzRQEe20REnHRwyOWF2tEF+gGdKtZiA7feBkCp2dkEG1E/BLCDKRdpSch5Hfq38DCE+M42z5IUvcuFGPH4bMfgk500JlL0VcYRsditOxDyFBRP7V9BgH9I4a0ZsOof6J938rVKFBI25xCXaJ1UrBKxS8McAKY3SKRlpIE/l5myf0GAS3567ncQfxzbJWBfXxTOveL321lZjlF+AzH8hsjjcIkwukFJ+zU+/1/VOzI2R/TTXcNP/S3eH0YQIlQ0g=
-  file: out/**/zip/*
-  on:
-    repo: binarysculptor/arioncoin
-    all_branches: true
+# - provider: releases
+#   api_key:
+#     secure: o9M/orE4lepzFAnRF/SHz05clwwvjW/fv8ydZDEG0BKhOMtTtiJlIh97s3Z3zENkVvf07tTiRf010uo4aQr9Mf7Ih6Ewi98/2mLLHYIBsVnzZ7xLsB+iotwxHcS+rYj9OQzh3iSKGNoacBd9DuGWEJA7upbVF/nvRIRoDNf60zcCPXStBPSRC5k3oILZ+e3kfScocbs/QvbgD797kJUAOpRmbjV6yNuJaLSyCNN4fUBsvzcwtolZgeIhR1Ergp9jXeiinjJQPBBVaBU9T0r3Iaw8QVwagWS1vdZbCVVZVt2nwxXHjs2wMqV4vTEPRH0IBdY1amQZQnE2MlXtHhPZi7VIRtnsQg0LN9vdvWioBpAMpgQgg3iCxQxA7gG/LdaYXoX3lRQXPV1RYIL/SQFXZDlEGxaLZTCP6FFP9KCfRJiKVzRQEe20REnHRwyOWF2tEF+gGdKtZiA7feBkCp2dkEG1E/BLCDKRdpSch5Hfq38DCE+M42z5IUvcuFGPH4bMfgk500JlL0VcYRsditOxDyFBRP7V9BgH9I4a0ZsOof6J938rVKFBI25xCXaJ1UrBKxS8McAKY3SKRlpIE/l5myf0GAS3567ncQfxzbJWBfXxTOveL321lZjlF+AzH8hsjjcIkwukFJ+zU+/1/VOzI2R/TTXcNP/S3eH0YQIlQ0g=
+#   file: out/**/zip/*
+#   on:
+#     repo: binarysculptor/arioncoin
+#     all_branches: true
 -   provider: s3
   access_key_id: $S3_ACCESS_KEY
   secret_access_key: $S3_SECRET
