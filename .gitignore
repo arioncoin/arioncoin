@@ -132,3 +132,5 @@ arion-cli
 ariond
 arion-qt
 make
+Makefile
+src/Makefile

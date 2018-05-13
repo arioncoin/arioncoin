@@ -66,4 +66,4 @@ deploy:
   file: out/**/zip/*
   on:
     repo: binarysculptor/arioncoin
-    tags: true
+    all_branches: true
