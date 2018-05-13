@@ -58,6 +58,7 @@ script:
 - cd $TRAVIS_BUILD_DIR && ./configure --prefix=$TRAVIS_BUILD_DIR/depends/$HOST $CONF
 - make $MAKEJOBS
 before_deploy:
+- chmod +x pre-deploy.sh    
 - "./pre-deploy.sh"
 deploy:
 - provider: releases
