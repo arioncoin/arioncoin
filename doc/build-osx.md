@@ -40,8 +40,8 @@ NOTE: Building with Qt4 is still supported, however, doing so could result in a 
 
 1. Clone the GitHub tree to get the source code and go into the directory.
 
-        git clone https://github.com/ArionCore/Arion.git
-        cd arion
+        git clone https://github.com/binarysculptor/arioncoin.git
+        cd arioncoin
 
 2.  Build Arion Core:
     This will configure and build the headless arion binaries as well as the gui (if Qt is found).
