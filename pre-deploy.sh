@@ -26,6 +26,11 @@ cp $TRAVIS_BUILD_DIR/src/qt/arion-qt $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/qt
 cp $TRAVIS_BUILD_DIR/src/ariond $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/ariond.exe $OUTDIR/bin/
 cp $TRAVIS_BUILD_DIR/src/arion-cli $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/arion-cli.exe $OUTDIR/bin/
 strip "$OUTDIR/bin"/* || echo "nothing to strip"
+
+if [[ $HOST = "x86_64-apple-darwin11" ]]; then
+    cp $TRAVIS_BUILD_DIR/src/Arion-Core.dmg $OUTDIR/bin/
+fi
+
 ls -lah $OUTDIR/bin
 
 cd $OUTDIR/bin
