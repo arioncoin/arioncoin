@@ -29,8 +29,7 @@ strip "$OUTDIR/bin"/* || echo "nothing to strip"
 
 if [[ $HOST = "x86_64-apple-darwin11" ]]; then
     make deploy
-    make install
-    cp $TRAVIS_BUILD_DIR/src/Arion-Core.dmg $OUTDIR/bin/
+    find $TRAVIS_BUILD_DIR -type f | grep -i Arion-Core.dmg$ | xargs -i cp {} $OUTDIR/bin
 fi
 
 ls -lah $OUTDIR/bin
