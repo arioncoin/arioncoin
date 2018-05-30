@@ -28,6 +28,7 @@ cp $TRAVIS_BUILD_DIR/src/arion-cli $OUTDIR/bin/ || cp $TRAVIS_BUILD_DIR/src/ario
 strip "$OUTDIR/bin"/* || echo "nothing to strip"
 
 if [[ $HOST = "x86_64-apple-darwin11" ]]; then
+    make deploy
     cp $TRAVIS_BUILD_DIR/src/Arion-Core.dmg $OUTDIR/bin/
 fi
 
