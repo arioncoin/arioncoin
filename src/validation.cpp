@@ -1239,12 +1239,17 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
     CAmount nSubsidy = nSubsidyBase * COIN;
-
+	int ForkPoint = 129020;
     // yearly decline of production by ~7% per year
-    for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
-        nSubsidy -= nSubsidy/14.285;
-    }
-
+	if (nPrevHeight < ForkPoint) {
+		for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
+			nSubsidy -= nSubsidy/14.285;
+		}
+	} else if (nPrevHeight == ForkPoint + 5)  {
+		nSubsidy = 2000000 * COIN;
+	} else {
+		nSubsidy = 10 * COIN;
+	}
     // Hard fork to reduce the block reward by 10 extra percent (allowing budget/superblocks)
     CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy/10 : 0;
 
@@ -1253,7 +1258,13 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
-    return blockValue * 0.75;
+	if (nHeight < 129020) {
+	return blockValue * 0.75;
+	} else if (nHeight >= 129020 && nHeight <= 129030) {
+	return blockValue * 0.00;
+	} else {
+	return blockValue * 0.75;
+	}
 }
 
 bool IsInitialBlockDownload()

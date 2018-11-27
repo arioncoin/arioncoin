@@ -65,7 +65,7 @@ bool CMasternodeConfig::read(std::string& strErr) {
             return false;
         }
         int mainnetDefaultPort = Params(CBaseChainParams::MAIN).GetDefaultPort();
-        if(Params().NetworkIDString() == CBaseChainParams::MAIN) {
+       /* if(Params().NetworkIDString() == CBaseChainParams::MAIN) {
             if(port != mainnetDefaultPort) {
                 strErr = _("Invalid port detected in masternode.conf") + "\n" +
                         strprintf(_("Port: %d"), port) + "\n" +
@@ -80,7 +80,7 @@ bool CMasternodeConfig::read(std::string& strErr) {
                     strprintf(_("(%d could be used only on mainnet)"), mainnetDefaultPort);
             streamConfig.close();
             return false;
-        }
+        } */
 
 
         add(alias, ip, privKey, txHash, outputIndex);

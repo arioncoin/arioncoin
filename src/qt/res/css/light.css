@@ -1,6 +1,6 @@
 /* Global Styles */
 * {
-  /* font-family: "Europa-Regular";
+  /* font-family: "overpass-mono-regular";
    font-size: 1em;*/
 }
 
@@ -190,7 +190,7 @@ padding-left:25px;
 padding-right:25px;
 padding-top:5px;
 padding-bottom:5px;
-font-family: "Europa-Regular";
+font-family: "overpass-mono-regular";
 
 }
 
@@ -935,7 +935,7 @@ QWidget .QFrame#frame { /* Wallet Balance */
 min-width:490px;
 font-size:18px;
 font-color:#f7f7f7;
-font-family:"Europa-Regular";
+font-family:"overpass-mono-regular";
 }
 
 QWidget .QFrame#frame > .QLabel {
@@ -993,7 +993,7 @@ QWidget .QFrame#frame .QLabel#labelBalance { /* Available Balance */
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 font-size:20px;
 color:#ffffff;
-font-family:"Europa-Regular";
+font-family:"overpass-mono-regular";
 
 margin-left:0px;
 }
@@ -1079,7 +1079,7 @@ QWidget .QFrame#framePrivateSend > .QLabel {
 min-width:190px;
 min-height:30px;
 font-size:18px;
-font-family:"Europa-Regular";
+font-family:"overpass-mono-regular";
 
 
 }
@@ -1197,7 +1197,7 @@ QWidget .QFrame#framePrivateSend  .QLabel#labelSubmittedDenomText { /* PrivateSe
 qproperty-alignment: 'AlignVCenter | AlignRight';
 min-width:160px;
 background-color:transparent;
-font-family: "Europa-Regular";
+font-family: "overpass-mono-regular";
 margin-right:5px;
 padding-right:5px;
 
@@ -1522,7 +1522,7 @@ margin-left:0px;
 padding-left:0px;
 color:#fff;
 font-size:20px;
-font-family:"Europa-Regular";
+font-family:"overpass-mono-regular";
 /* font-weight:bold;
 border-radius:5px;
 padding-top:20px;

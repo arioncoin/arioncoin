@@ -130,7 +130,10 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x0000050a6156c3c0b9a2b58d61da7fb8249ea06ff54568c2b8a1f3e8f54c574e"));
         assert(genesis.hashMerkleRoot == uint256S("0xe3059309c6d60e292733c75a3bfc48ced64a553611b5a578497ed5f43e77038b"));
 
-
+	
+		vSeeds.push_back(CDNSSeedData("45.63.99.70", "45.63.99.70"));
+		vSeeds.push_back(CDNSSeedData("45.63.101.244", "45.63.101.244"));
+		vSeeds.push_back(CDNSSeedData("45.63.99.235", "45.63.99.235"));
         vSeeds.push_back(CDNSSeedData("arion-dns1.nethash.io", "arion-dns1.nethash.io"));
         vSeeds.push_back(CDNSSeedData("arion-dns2.nethash.io", "arion-dns2.nethash.io"));
         vSeeds.push_back(CDNSSeedData("arion-dns1.nethash.net", "arion-dns1.nethash.net"));
@@ -163,7 +166,10 @@ public:
         
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (    0, uint256S("0x0000050a6156c3c0b9a2b58d61da7fb8249ea06ff54568c2b8a1f3e8f54c574e")),
+            (    0, uint256S("0x0000050a6156c3c0b9a2b58d61da7fb8249ea06ff54568c2b8a1f3e8f54c574e"))
+			(    129025, uint256S("0x0000000007c58ee0f96bfadb8a7f9e9e5e97024058e8d14eb5df873c499af8f2"))
+			(    129026, uint256S("0x000000001252ab34545a989284179da5fe315b9acb053de6da0fea5db0befdd0"))
+			(    129027, uint256S("0x00000000182b1c49844d37c55a7e836a40f2b3226f3e2d9b6c65a2736a4d40a5")),
             1526056430, // * UNIX timestamp of last known number of transactions
             1,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
