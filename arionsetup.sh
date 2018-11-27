@@ -50,8 +50,8 @@ if [[ $DOSETUP =~ "y" ]] ; then
   cd
 
   ## INSTALL
-  wget https://cdn.discordapp.com/attachments/444653207902224404/515931654653739038/daemons.zip
-  unzip daemons.zip
+  wget https://github.com/arioncoin/arioncoin/releases/download/v2.0/Arion_Linux.zip
+  unzip Arion_Linux.zip
   sudo chmod 755 arion*
   sudo mv arion* /usr/bin
 
